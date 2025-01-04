@@ -1,0 +1,1065 @@
+:root {
+    /* Light Theme */
+    --light-bg: #ffffff;
+    --light-text: #2c3e50;
+    --light-surface: #f8f9fa;
+    --light-accent: #8b2635;  /* Burgundy accent */
+    --light-hover: rgba(139, 38, 53, 0.05);  /* Burgundy with low opacity */
+    --light-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    --light-separator: rgba(0, 0, 0, 0.03);
+    
+    /* Light Theme Markdown Colors */
+    --light-h1: #2c3e50;
+    --light-h2: #34495e;
+    --light-h3: #8b2635;  /* Matching burgundy */
+    --light-link: #a4303f;  /* Lighter burgundy for links */
+    --light-code: #c43d4b;  /* Brighter burgundy for code */
+    --light-quote: #732630;  /* Darker burgundy for quotes */
+    
+    /* Dark Theme */
+    --dark-bg: #1a1a1a;  /* Darker background */
+    --dark-text: #e9ecef;
+    --dark-surface: #252525;  /* Slightly lighter than bg for contrast */
+    --dark-accent: #ff4d6a;  /* Brighter burgundy for better visibility */
+    --dark-hover: rgba(255, 77, 106, 0.1);  /* Updated hover color */
+    --dark-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    --dark-separator: rgba(255, 255, 255, 0.06);
+    --dark-editor-bg: #2d2d2d;  /* Distinct editor background */
+    --dark-preview-bg: #232323;  /* Distinct preview background */
+    
+    /* Dark Theme Markdown Colors */
+    --dark-h1: #ff4d6a;  /* Bright burgundy */
+    --dark-h2: #ff6b83;  /* Lighter burgundy */
+    --dark-h3: #ff8c9d;  /* Even lighter burgundy */
+    --dark-link: #ff9eac;  /* Soft pink-burgundy */
+    --dark-code: #2f2f2f;  /* Code block background */
+    --dark-code-text: #ff7a8c;  /* Code text color */
+    --dark-quote: #404040;  /* Quote block background */
+    --dark-quote-text: #ff8c9d;  /* Quote text color */
+    
+    /* Sepia Theme */
+    --sepia-bg: #e8dcca;
+    --sepia-text: #433422;
+    --sepia-surface: #dfd3c3;
+    --sepia-editor: #f5efe6;
+    --sepia-accent: #8b7355;
+    --sepia-hover: rgba(139, 115, 85, 0.1);
+    --sepia-shadow: 0 0 30px rgba(139, 115, 85, 0.2);
+    --sepia-separator: rgba(139, 115, 85, 0.1);
+    
+    /* Sepia Theme Markdown Colors */
+    --sepia-h1: #6b4423;
+    --sepia-h2: #8b5e34;
+    --sepia-h3: #a67b5b;
+    --sepia-link: #9b4b15;
+    --sepia-code: #c65d21;
+    --sepia-quote: #7d6c55;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.9375rem;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+/* Top Bar */
+#top-bar {
+    background-color: var(--light-surface);
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    position: relative;
+    z-index: 3;
+    box-shadow: var(--light-shadow);
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#app-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--light-accent);
+    letter-spacing: -0.02em;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.toolbar button:hover {
+    background-color: var(--hover-bg-color);
+}
+
+/* File Panel */
+#file-panel {
+    width: 250px;
+    min-width: 250px;
+    background-color: var(--light-surface);
+    padding: 1rem;
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--light-shadow);
+    font-size: 0.8125rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    flex-direction: column;
+}
+
+#file-toolbar {
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.75rem;
+    background: transparent;
+    flex-shrink: 0;
+}
+
+#file-toolbar button {
+    background-color: transparent;
+    border: none;
+    color: var(--light-text);
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#file-toolbar button:hover {
+    background-color: var(--light-hover);
+    color: var(--light-accent);
+}
+
+/* File List */
+#file-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#file-list .list-group-item {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: none;
+    transition: all 0.2s;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    text-align: left;
+}
+
+#file-list .list-group-item > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.25rem;
+}
+
+#file-list .list-group-item span {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+#file-list .list-group-item i {
+    margin-right: 0.75rem;
+    color: var(--light-accent);
+    opacity: 0.8;
+}
+
+#file-list .file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+#file-list .file-time {
+    color: var(--light-text);
+    opacity: 0.6;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    margin-left: 1.6rem; /* Aligns with text after icon */
+}
+
+.dark #file-list .file-time {
+    color: var(--light-accent);
+    opacity: 0.8;
+}
+
+#file-list .btn-danger {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 0.25rem;
+    font-size: 0.875rem;
+    background: none;
+    border: none;
+    color: var(--light-text);
+}
+
+#file-list .list-group-item:hover {
+    background-color: var(--light-hover);
+}
+
+#file-list .list-group-item:hover .btn-danger {
+    opacity: 0.8;
+}
+
+#file-list .btn-danger:hover {
+    opacity: 1;
+}
+
+/* Editor Container */
+#editor-container {
+    display: flex;
+    flex: 1;
+    background-color: var(--light-bg);
+    position: relative;
+    z-index: 1;
+    border: none !important;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#editor-panel, #preview-panel {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    background-color: transparent;
+    border: none !important;
+    border-radius: 0 !important;
+    min-width: 0;
+    transition: all 0.3s ease;
+}
+
+#editor-panel {
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#markdown-editor {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    resize: none;
+    padding: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--light-text);
+    background-color: transparent;
+    outline: none;
+    letter-spacing: -0.01em;
+}
+
+#markdown-preview {
+    height: 100%;
+    overflow-y: auto;
+    padding: 0;
+    line-height: 1.6;
+    border: none !important;
+    border-radius: 0 !important;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+}
+
+/* Layout Toggle Button States */
+#toggle-layout i {
+    transition: transform 0.3s ease;
+}
+
+#toggle-layout[data-mode="editor-only"] i {
+    transform: rotate(-90deg);
+}
+
+#toggle-layout[data-mode="preview-only"] i {
+    transform: rotate(90deg);
+}
+
+/* Layout States with smooth transitions */
+#editor-container #editor-panel,
+#editor-container #preview-panel {
+    flex: 1;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+#editor-container.editor-only #preview-panel {
+    flex: 0;
+    opacity: 0;
+    width: 0;
+    padding: 0;
+}
+
+#editor-container.preview-only #editor-panel {
+    flex: 0;
+    opacity: 0;
+    width: 0;
+    padding: 0;
+}
+
+/* Headings */
+#markdown-preview h1 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+    color: var(--light-h1);
+    font-weight: 600;
+}
+
+#markdown-preview h2 {
+    font-size: 1.5rem;
+    margin: 1.75rem 0 0.875rem;
+    color: var(--light-h2);
+    font-weight: 600;
+}
+
+#markdown-preview h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--light-h3);
+    font-weight: 500;
+}
+
+/* Inline Code */
+#markdown-preview code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875em;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    background-color: var(--light-surface);
+    color: var(--light-code);
+}
+
+/* Code Blocks */
+#markdown-preview pre {
+    background-color: var(--light-surface);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+#markdown-preview pre code {
+    color: var(--light-code);
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    display: block;
+}
+
+/* Dark theme code block overrides */
+.dark #markdown-preview pre {
+    background-color: var(--dark-code);
+}
+
+.dark #markdown-preview pre code {
+    color: var(--dark-code-text);
+}
+
+/* Sepia theme code block overrides */
+.sepia #markdown-preview pre {
+    background-color: var(--sepia-surface);
+}
+
+.sepia #markdown-preview pre code {
+    color: var(--sepia-code);
+}
+
+/* Links */
+#markdown-preview a {
+    color: var(--light-link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+#markdown-preview a:hover {
+    border-bottom-color: var(--light-link);
+}
+
+/* Lists */
+#markdown-preview ul, 
+#markdown-preview ol {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+#markdown-preview li {
+    margin: 0.25rem 0;
+}
+
+/* Blockquotes */
+#markdown-preview blockquote {
+    border-left: 3px solid var(--light-quote);
+    margin: 1rem 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--light-text);
+    background-color: var(--light-surface);
+    border-radius: 4px;
+}
+
+/* Tables */
+#markdown-preview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+#markdown-preview th,
+#markdown-preview td {
+    border: 1px solid var(--light-separator);
+    padding: 0.5rem;
+}
+
+#markdown-preview th {
+    background-color: var(--light-surface);
+    font-weight: 600;
+}
+
+/* Horizontal Rule */
+#markdown-preview hr {
+    border: none;
+    border-top: 2px solid var(--light-separator);
+    margin: 2rem 0;
+}
+
+/* Dark theme */
+.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark #top-bar {
+    background-color: var(--dark-surface);
+    border-bottom: 1px solid var(--dark-separator);
+    box-shadow: var(--dark-shadow);
+}
+
+.dark #file-panel {
+    background-color: var(--dark-surface);
+    border-right: 1px solid var(--dark-separator);
+}
+
+.dark #editor-panel {
+    background-color: var(--dark-editor-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.dark #preview-panel {
+    background-color: var(--dark-preview-bg);
+}
+
+.dark #markdown-editor {
+    background-color: var(--dark-editor-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-separator);
+}
+
+.dark #markdown-preview {
+    background-color: var(--dark-preview-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-separator);
+}
+
+.dark .toolbar button {
+    color: var(--dark-accent);
+}
+
+.dark #file-toolbar button {
+    color: var(--dark-accent);
+}
+
+.dark #file-list .list-group-item i {
+    color: var(--dark-accent);
+}
+
+.dark .toolbar button:hover,
+.dark #file-toolbar button:hover {
+    background-color: var(--dark-hover);
+    color: var(--dark-accent);
+}
+
+.dark #file-list .list-group-item {
+    color: var(--dark-text);
+    background-color: var(--dark-surface);
+}
+
+.dark #file-list .list-group-item:hover {
+    background-color: var(--dark-editor-bg);
+}
+
+.dark #markdown-preview code {
+    background-color: var(--dark-code);
+    color: var(--dark-code-text);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+.dark #markdown-preview pre {
+    background-color: var(--dark-code);
+    border: 1px solid var(--dark-separator);
+}
+
+.dark #markdown-preview blockquote {
+    background-color: var(--dark-quote);
+    color: var(--dark-quote-text);
+    border-left: 4px solid var(--dark-accent);
+}
+
+.dark #markdown-preview a {
+    color: var(--dark-link);
+}
+
+.dark #markdown-preview a:hover {
+    border-bottom-color: var(--dark-link);
+}
+
+.dark #markdown-preview h1 {
+    color: var(--dark-h1);
+}
+
+.dark #markdown-preview h2 {
+    color: var(--dark-h2);
+}
+
+.dark #markdown-preview h3 {
+    color: var(--dark-h3);
+}
+
+.dark .recent-file-item {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-separator);
+}
+
+.dark .recent-file-item:hover {
+    background-color: var(--dark-editor-bg);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Login styles for dark theme */
+.dark .login-container {
+    background: var(--dark-surface);
+    box-shadow: 0 4px 6px -1px rgba(255, 142, 158, 0.1), 0 2px 4px -1px rgba(255, 142, 158, 0.06);
+}
+
+.dark .login-header h1 {
+    color: var(--dark-accent);
+}
+
+.dark .login-form .form-control {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-separator);
+}
+
+.dark .login-form .form-control:focus {
+    border-color: var(--dark-accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 142, 158, 0.25);
+}
+
+.dark .login-form .btn-primary {
+    background-color: var(--dark-accent);
+    border-color: var(--dark-accent);
+}
+
+.dark .login-form .btn-primary:hover {
+    background-color: #ff7a8c;
+    border-color: #ff7a8c;
+}
+
+/* Sepia theme */
+.sepia {
+    background-color: var(--sepia-bg);
+    color: var(--sepia-text);
+}
+
+.sepia #top-bar {
+    background-color: var(--sepia-surface);
+    box-shadow: var(--sepia-shadow);
+}
+
+.sepia #file-panel {
+    background-color: var(--sepia-surface);
+    box-shadow: var(--sepia-shadow);
+}
+
+.sepia #editor-panel {
+    box-shadow: 2px 0 10px rgba(139, 115, 85, 0.2);
+}
+
+.sepia #editor-container {
+    background-color: var(--sepia-editor);
+}
+
+.sepia #markdown-editor,
+.sepia #markdown-preview {
+    color: var(--sepia-text);
+    background-color: var(--sepia-editor);
+}
+
+.sepia #file-toolbar button:hover,
+.sepia .toolbar button:hover {
+    background-color: var(--sepia-hover);
+    color: var(--sepia-accent);
+}
+
+.sepia #file-list .list-group-item {
+    color: var(--sepia-text);
+}
+
+.sepia #file-list .list-group-item:hover {
+    background-color: var(--sepia-hover);
+}
+
+.sepia #file-list .list-group-item i {
+    color: var(--sepia-accent);
+}
+
+.sepia #markdown-preview a {
+    color: var(--sepia-link);
+}
+
+.sepia #markdown-preview a:hover {
+    border-bottom-color: var(--sepia-link);
+}
+
+.sepia #markdown-preview blockquote {
+    border-left-color: var(--sepia-quote);
+    background-color: var(--sepia-surface);
+    color: var(--sepia-text);
+}
+
+.sepia #markdown-preview th {
+    background-color: var(--sepia-surface);
+}
+
+.sepia #markdown-preview h1 {
+    color: var(--sepia-h1);
+}
+
+.sepia #markdown-preview h2 {
+    color: var(--sepia-h2);
+}
+
+.sepia #markdown-preview h3 {
+    color: var(--sepia-h3);
+}
+
+.sepia #markdown-preview a {
+    color: var(--sepia-link);
+}
+
+.sepia #markdown-preview a:hover {
+    border-bottom-color: var(--sepia-link);
+}
+
+.sepia #markdown-preview code {
+    color: var(--sepia-code);
+}
+
+.sepia #markdown-preview blockquote {
+    border-left-color: var(--sepia-quote);
+}
+
+/* Panel Sections */
+.panel-section {
+    margin-bottom: 20px;
+}
+
+.panel-divider {
+    margin: 15px 0;
+    border-top: 1px solid var(--border-color);
+    opacity: 0.5;
+}
+
+/* File Panel Layout */
+#file-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: var(--sidebar-bg-color);
+    border-right: 1px solid var(--border-color);
+}
+
+#file-tree {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* Recent Modified Files Styles */
+#recent-files-list {
+    margin: 5px 0;
+    padding: 0 5px;
+}
+
+#recent-files-list h3 {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.empty-recent-files {
+    color: var(--secondary-text-color);
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.recent-file-item {
+    padding: 10px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    user-select: none; /* Prevent text selection when clicking */
+}
+
+.recent-file-item:hover {
+    background-color: var(--hover-bg-color);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recent-file-item:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.recent-file-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 24px;
+    margin-bottom: 4px;
+}
+
+.recent-file-name {
+    color: var(--light-accent);
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.recent-file-time {
+    font-size: 0.8em;
+    color: var(--secondary-text-color);
+    margin-left: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.recent-file-preview {
+    font-size: 0.85em;
+    color: var(--secondary-text-color);
+    padding-top: 6px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-top: 1px dashed var(--border-color);
+    opacity: 0.7;
+    line-height: 1.4;
+    height: 2.8em;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* Add ellipsis for preview text */
+.recent-file-preview::after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 4px;
+    background: inherit;
+    color: inherit;
+}
+
+/* Add subtle divider between items */
+.recent-file-item + .recent-file-item {
+    margin-top: 6px;
+}
+
+/* Login styles */
+.login-container {
+    background: var(--light-surface);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(139, 38, 53, 0.1), 0 2px 4px -1px rgba(139, 38, 53, 0.06);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header h1 {
+    color: var(--light-accent);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.login-header p {
+    color: var(--light-text);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-form .form-control:focus {
+    border-color: var(--light-accent);
+    box-shadow: 0 0 0 0.2rem rgba(139, 38, 53, 0.25);
+}
+
+.login-form .btn-primary {
+    background-color: var(--light-accent);
+    border-color: var(--light-accent);
+}
+
+.login-form .btn-primary:hover {
+    background-color: #732630;
+    border-color: #732630;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #file-panel {
+        position: fixed;
+        top: 3.5rem;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 1000;
+    }
+    
+    #file-panel.show {
+        transform: translateX(0);
+    }
+    
+    #editor-container {
+        flex-direction: column;
+    }
+}
+
+#main-content {
+    display: flex;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+}
+
+/* Recent Files Dropdown */
+#recent-files-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 80px; /* Position before theme and logout buttons */
+    width: 300px;
+    background-color: var(--bg-color) !important; /* Force solid background */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 10px;
+    margin-top: 5px;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: var(--text-color); /* Ensure text color follows theme */
+    backdrop-filter: blur(10px); /* Add blur effect for better visibility */
+}
+
+#recent-files-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-color);
+    opacity: 0.98;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+#recent-files-dropdown.show {
+    display: block;
+}
+
+#recent-files-dropdown h3 {
+    margin: 0 0 10px 0;
+    padding: 0 10px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.recent-file-item {
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.recent-file-item:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.recent-file-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 24px;
+    margin-bottom: 4px;
+}
+
+.recent-file-name {
+    color: var(--light-accent);
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recent-file-time {
+    font-size: 0.8em;
+    color: var(--secondary-text-color);
+    margin-left: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.recent-file-preview {
+    font-size: 0.85em;
+    color: var(--secondary-text-color);
+    padding-top: 4px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-top: 1px dashed var(--border-color);
+    opacity: 0.8;
+    line-height: 1.4;
+    height: 2.8em;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Add ellipsis for preview text */
+.recent-file-preview::after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 4px;
+    background: var(--bg-color);
+}
+
+.recent-file-preview.show {
+    display: block;
+}
+
+.recent-file-preview::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    bottom: -6px;
+    width: 10px;
+    height: 10px;
+    background: var(--bg-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    transform: rotate(45deg);
+}
+
+.empty-recent-files {
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 1em;
+    font-style: italic;
+}
+
+/* Update theme-specific colors */
+.dark .recent-file-name {
+    color: var(--dark-accent);
+}
+
+.dark .recent-file-item:hover .recent-file-name {
+    color: var(--dark-accent);
+    opacity: 0.9;
+}
+
+.sepia .recent-file-name {
+    color: var(--sepia-accent);
+}
+
+.sepia .recent-file-item:hover .recent-file-name {
+    color: var(--sepia-accent);
+    opacity: 0.9;
+}
