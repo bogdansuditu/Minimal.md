@@ -25,16 +25,26 @@ A minimalist Markdown editor with user authentication and file management capabi
 
 ## Snapshots
 
-**Login Page** 
-![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Dark.png)
+**Login Page**  
+<a href="https://bogdansuditu.net/Assets/Minimal_Full_Light_Login.png" target="_blank">
+  <img src="https://bogdansuditu.net/Assets/Minimal_Full_Light_Login.png" alt="Login Page" width="300">
+</a>
 **Main Window Light Theme**
-![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Light_Recents.png)
-**Main Window Light Deletions Prompt**
-![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Light_Deletion.png)
+<a href="https://bogdansuditu.net/Assets/Minimal_Full_Light_Recents.png" target="_blank">
+  <img src="https://bogdansuditu.net/Assets/Minimal_Full_Light_Recents.png" alt="Main Window Light Theme" width="300">
+</a>
+**Main Window Light Confirmation Prompt**
+<a href="https://bogdansuditu.net/Assets/Minimal_Full_Light_Deletion.png" target="_blank">
+  <img src="https://bogdansuditu.net/Assets/Minimal_Full_Light_Deletion.png" alt="Main Window Light Confirmation Prompt" width="300">
+</a>
 **Main Window Dark Theme**
-![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Dark.png)
+<a href="https://bogdansuditu.net/Assets/Minimal_Full_Dark.png" target="_blank">
+  <img src="https://bogdansuditu.net/Assets/Minimal_Full_Dark.png" alt="Main Window Dark Theme" width="300">
+</a>
 **Main Window Sepia Theme**
-![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Sepia.png)
+<a href="https://bogdansuditu.net/Assets/Minimal_Full_Sepia.png" target="_blank">
+  <img src="https://bogdansuditu.net/Assets/Minimal_Full_Sepia.png" alt="Main Window Sepia Theme" width="300">
+</a>
 
 
 ## Prerequisites
