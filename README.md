@@ -11,10 +11,36 @@ A minimalist Markdown editor with user authentication and file management capabi
 - Responsive design
 - Docker-based deployment
 
+## Functionalities
+
+- Add folders
+- Navigate through directory structure with back navigation
+- Auto-save functionality with change detection
+- Smart file naming based on content titles
+- Recent files tracking
+- File deletion with confirmation
+- File preview capabilities
+- Responsive file panel that adapts to mobile/desktop views
+- Themes: Light, Dark, and Sepia
+
+## Snapshots
+
+**Login Page** 
+![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Dark.png)
+**Main Window Light Theme**
+![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Light_Recents.png)
+**Main Window Light Deletions Prompt**
+![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Light_Deletion.png)
+**Main Window Dark Theme**
+![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Dark.png)
+**Main Window Sepia Theme**
+![Dashboard](https://bogdansuditu.net/Assets/Minimal_Full_Sepia.png)
+
+
 ## Prerequisites
 
 - Docker and Docker Compose
-- PHP 7.4 or higher (for local development)
+
 
 ## Quick Start
 
@@ -53,6 +79,6 @@ The docker container assumes that the user running is www-data so you may need t
 
 ## Development
 The project uses Docker for development and deployment. The development environment is configured with:
-- PHP 7.4
+- PHP 8.2
 - Apache web server
 - Volume mounting for real-time development
